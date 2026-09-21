@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ServiceNow — Exterprise (Page Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Same variable names as the homepage mockup — swap hex values here to re-theme both pages at once. */
+  :root{
+    --ink:#0B1B4A;
+    --ink-soft:#1D2F63;
+    --paper:#FFFFFF;
+    --paper-dim:#F3F5FA;
+    --teal:#E2231A;        /* primary CTA */
+    --teal-deep:#B81810;
+    --amber:#F2A730;       /* Premier accent */
+    --amber-deep:#B8720F;
+    --green:#2E7D32;
+    --slate:#4B5468;
+    --line:#E1E4EC;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Source Serif 4', serif; font-weight:600; margin:0; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  p{margin:0;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  /* HEADER (shared global header) */
+  header{background:var(--ink); color:#F0F2F8; padding:16px 0;}
+  .header-row{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .logo{font-family:'Source Serif 4', serif; font-size:22px;}
+  nav{display:flex; gap:28px; font-size:14.5px;}
+  nav a{opacity:0.88;} nav a:hover{opacity:1;}
+  .badge-chip{display:flex; align-items:center; gap:8px; border:1px solid rgba(242,167,48,0.55); padding:6px 12px 6px 8px; border-radius:3px; font-size:12.5px; color:#F2C87A; white-space:nowrap;}
+  .badge-chip .dot{width:7px; height:7px; border-radius:50%; background:var(--amber); flex:none;}
+  .cta-btn{background:var(--teal); color:#fff; padding:9px 18px; border-radius:3px; font-size:14px; font-weight:500; white-space:nowrap; display:inline-block;}
+  .cta-btn:hover{background:var(--teal-deep);}
+
+  /* BREADCRUMB + PAGE HERO (mirrors current page-title banner) */
+  .page-hero{background:var(--ink-soft); color:#F0F2F8; padding:48px 0 42px;}
+  .crumb{font-size:13px; color:rgba(240,242,248,0.65); margin-bottom:14px;}
+  .crumb a{color:rgba(240,242,248,0.85);}
+  .page-hero h1{font-size:38px; color:#fff;}
+  .page-hero .sub{margin-top:14px; font-size:16px; color:rgba(240,242,248,0.8); max-width:60ch; line-height:1.55;}
+  .page-hero .badge-inline{margin-top:20px; display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--amber);}
+  .page-hero .badge-inline .dot{width:7px; height:7px; border-radius:50%; background:var(--amber);}
+
+  /* VIDEO PANEL (same as current "One picture, Video Presentation" block) */
+  .video-panel{padding:44px 0 8px;}
+  .video-frame{
+    position:relative; aspect-ratio:16/6.2; background:var(--paper-dim);
+    border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+  }
+  .video-frame .play{width:56px; height:56px; border-radius:50%; background:var(--teal); color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px;}
+  .video-caption{font-size:13.5px; color:var(--slate); margin-top:10px;}
+
+  /* SOLUTIONS & SERVICES sub-nav strip (mirrors the current tile row: Overview / CSM / FSM / ITSM / ITOM / Now Platform) */
+  .subnav-section{padding:52px 0 44px; border-bottom:1px solid var(--line);}
+  .subnav-section h2{font-size:26px; margin-bottom:8px;}
+  .subnav-section .lede{font-size:15px; color:var(--slate); max-width:60ch; margin-bottom:28px;}
+  .subnav-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .subnav-item{background:var(--paper); padding:20px 20px 22px;}
+  .subnav-item .new-tag{display:inline-block; font-size:10.5px; font-weight:600; color:var(--amber-deep); border:1px solid var(--amber); padding:2px 6px; border-radius:2px; margin-bottom:10px;}
+  .subnav-item h3{font-size:15.5px; line-height:1.3;}
+  .subnav-item p{font-size:13px; color:var(--slate); margin-top:8px; line-height:1.5;}
+
+  /* TRUST WIDGET — new, compact strip under the nav grid */
+  .trust-widget{background:var(--ink); color:#F0F2F8; padding:26px 0;}
+  .trust-widget .wrap{display:flex; flex-wrap:wrap; gap:28px; justify-content:space-between; align-items:center;}
+  .trust-widget .item{font-size:13.5px; display:flex; align-items:baseline; gap:8px; color:rgba(240,242,248,0.85);}
+  .trust-widget .item .n{font-family:'Source Serif 4', serif; font-size:21px; color:var(--amber);}
+  .trust-widget .verify{font-size:12.5px; color:var(--amber); border-bottom:1px solid rgba(242,167,48,0.5);}
+
+  /* OFFERINGS INTRO (rewritten paragraph section) */
+  .offerings-intro{padding:54px 0; border-bottom:1px solid var(--line);}
+  .offerings-intro h2{font-size:28px; max-width:22ch;}
+  .offerings-intro p{font-size:16px; color:var(--slate); line-height:1.65; max-width:72ch; margin-top:18px;}
+
+  /* CAPABILITY BLOCK (used for AI widget + Admin/Implementation/Integration/Migration, alternating image side like the current page) */
+  .cap-block{padding:56px 0; border-bottom:1px solid var(--line);}
+  .cap-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .cap-grid.reverse .cap-text{order:2;}
+  .cap-grid.reverse .cap-media{order:1;}
+  .cap-text .eyebrow{font-size:12.5px; font-weight:600; color:var(--amber-deep); margin-bottom:10px;}
+  .cap-text h2{font-size:27px; margin-bottom:16px; max-width:18ch;}
+  .cap-text ul{margin:0; padding:0; list-style:none;}
+  .cap-text li{font-size:14.5px; color:var(--slate); padding:9px 0 9px 20px; border-top:1px solid var(--line); position:relative;}
+  .cap-text li:first-child{border-top:none;}
+  .cap-text li::before{content:"—"; position:absolute; left:0; color:var(--amber-deep);}
+  .cap-media{background:var(--paper-dim); border:1px solid var(--line); min-height:260px; display:flex; align-items:center; justify-content:center; color:var(--slate); font-size:13px; text-align:center; padding:24px;}
+
+  /* CTA / CONTACT (kept minimal, matches "Let's Talk" section intent) */
+  .contact-cta{background:var(--ink); color:#F0F2F8; padding:56px 0; text-align:center;}
+  .contact-cta h2{color:#fff; font-size:28px;}
+  .contact-cta p{margin-top:12px; color:rgba(240,242,248,0.8); font-size:15px;}
+  .contact-cta .cta-btn{margin-top:22px;}
+
+  footer{background:var(--paper-dim); padding:26px 0; font-size:13px; color:var(--slate); text-align:center;}
+
+  @media (max-width:900px){
+    .subnav-grid{grid-template-columns:repeat(2,1fr);}
+    .cap-grid, .cap-grid.reverse{grid-template-columns:1fr;}
+    .cap-grid.reverse .cap-text, .cap-grid.reverse .cap-media{order:0;}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="logo">Exterprise</div>
+    <nav>
+      <a href="#">ServiceNow</a>
+      <a href="#">AI &amp; Agentic Solutions</a>
+      <a href="#">Industries</a>
+      <a href="#">Smartsourcing</a>
+      <a href="#">About</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="badge-chip"><img src="assets/servicenow-premier-partner-badge.png" alt="" style="width:20px; height:20px; border-radius:4px; flex:none;">ServiceNow Premier Partner</div>
+      <a class="cta-btn" href="#">Talk to Us</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="#">Home</a> / ServiceNow</div>
+    <h1>ServiceNow</h1>
+    <p class="sub">Enterprise service management, AI Agents, and Now Assist — designed, deployed, and governed by a ServiceNow Premier Partner for Consulting &amp; Implementation.</p>
+    <div class="badge-inline"><img src="assets/servicenow-premier-partner-badge.png" alt="" style="width:18px; height:18px; border-radius:3px; flex:none;">Premier Partner — Consulting &amp; Implementation · 4.5/5 CSAT</div>
+  </div>
+</section>
+
+<section class="video-panel">
+  <div class="wrap">
+    <div class="video-frame">
+      <div class="play">▶</div>
+    </div>
+    <p class="video-caption">Watch: How Exterprise deploys AI Agents and Now Assist inside the ServiceNow platform.</p>
+  </div>
+</section>
+
+<section class="subnav-section">
+  <div class="wrap">
+    <h2>ServiceNow Solutions &amp; Services</h2>
+    <p class="lede">Advisory, implementation, administration and support, integration, and migration — spanning the ServiceNow AI Platform from core ITSM and CSM to AI Agents and Now Assist.</p>
+    <div class="subnav-grid">
+      <div class="subnav-item">
+        <h3>Overview</h3>
+        <p>Advisory, implementation, administration and support, integration, and migration — covering everything from core ITSM and CSM to AI Agents and Now Assist.</p>
+      </div>
+      <div class="subnav-item">
+        <span class="new-tag">NEW</span>
+        <h3>AI Agents &amp; Now Assist</h3>
+        <p>Autonomous agents that take action, coordinated by AI Agent Orchestrator and governed through AI Control Tower — plus generative Now Assist copilots for the work that still needs a human in the loop.</p>
+      </div>
+      <div class="subnav-item">
+        <span class="new-tag">NEW</span>
+        <h3>ServiceNow Otto</h3>
+        <p>Now Assist, Moveworks, and AI Experience, unified into one conversational front door that finishes the work — not just answers it.</p>
+      </div>
+      <div class="subnav-item">
+        <h3>Customer Service Management (CSM)</h3>
+        <p>Predictive Intelligence classifies incoming cases while Advanced Work Assignment gets them to the right agent instantly — no manual triage between front, middle, and back office.</p>
+      </div>
+      <div class="subnav-item">
+        <h3>Field Service Management (FSM)</h3>
+        <p>Schedule Optimization keeps the right technician on the right job, while Predictive Intelligence catches equipment failures before they happen.</p>
+      </div>
+      <div class="subnav-item">
+        <h3>IT Service Management (ITSM)</h3>
+        <p>Predictive Intelligence routes incidents automatically and Now Assist drafts the resolution — turning IT service delivery from reactive to proactive.</p>
+      </div>
+      <div class="subnav-item">
+        <h3>IT Operations Management (ITOM)</h3>
+        <p>Predictive AIOps catches the anomaly before it becomes an outage, so your team gets a head start instead of a 2am page.</p>
+      </div>
+      <div class="subnav-item">
+        <span class="new-tag">NEW</span>
+        <h3>Strategic Portfolio Management (SPM)</h3>
+        <p>Now Assist for SPM keeps portfolio data current automatically, so leadership prioritizes against real business outcomes — not last quarter's spreadsheet.</p>
+      </div>
+      <div class="subnav-item">
+        <h3>Now Platform</h3>
+        <p>Build Agent turns a plain-language description into a governed, deployable app — no waiting on a dev queue for every small request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-widget">
+  <div class="wrap">
+    <img src="assets/servicenow-premier-partner-badge.png" alt="ServiceNow Premier Partner — Consulting & Implementation" style="width:64px; height:64px; border-radius:8px; flex:none;">
+    <div class="item"><span class="n">Premier</span>Consulting &amp; Implementation segment</div>
+    <div class="item"><span class="n">4.5/5</span>Customer satisfaction score</div>
+    <div class="item"><span class="n">3</span>Now Assist certifications (ITSM, HRSD, Creator)</div>
+    <a class="verify" href="#">View our ServiceNow Partner Finder profile →</a>
+  </div>
+</section>
+
+<section class="offerings-intro">
+  <div class="wrap">
+    <h2>ServiceNow Offerings</h2>
+    <p>Exterprise delivers ServiceNow expertise from onshore, nearshore, and offshore teams worldwide. As a ServiceNow Premier Partner for Consulting &amp; Implementation, our practice spans the full platform — from foundational ITSM and CSM, powered by Predictive Intelligence and Virtual Agent, to the current generation of AI Agents and Now Assist — for clients in Financial Services, Insurance, Healthcare and Life Sciences, Government, and Service Provider industries.</p>
+  </div>
+</section>
+
+<section class="cap-block">
+  <div class="wrap cap-grid">
+    <div class="cap-text">
+      <div class="eyebrow">AI &amp; AGENTIC AI</div>
+      <h2>ServiceNow's AI, deployed with intent</h2>
+      <ul>
+        <li>AI Agents that triage, resolve, and escalate work with full case context</li>
+        <li>Now Assist implementation across ITSM, HR Service Delivery, and Creator</li>
+        <li><strong>AI Agent Orchestrator</strong> coordinating a multi-agent Autonomous Workforce, so agents hand off work cleanly instead of colliding</li>
+        <li><strong>AI Control Tower</strong> and <strong>Now Assist Guardian</strong> for enterprise-wide AI governance, usage control, and oversight</li>
+        <li><strong>Predictive Intelligence</strong> classification and routing underneath ITSM, CSM, and HRSD</li>
+        <li>Process Mining to identify what's worth automating before you build it</li>
+      </ul>
+    </div>
+    <div class="cap-media">[ Visual: AI Agent workflow / Now Assist screenshot placeholder ]</div>
+  </div>
+</section>
+
+<section class="cap-block">
+  <div class="wrap cap-grid reverse">
+    <div class="cap-text">
+      <div class="eyebrow">ADMINISTRATION &amp; SUPPORT</div>
+      <h2>Administration &amp; Support</h2>
+      <ul>
+        <li>ServiceNow platform patch management</li>
+        <li>Monitoring application health and performance, including AI Agent activity through <strong>AI Control Tower</strong></li>
+        <li>User &amp; license management and optimization, including Now Assist licensing</li>
+        <li>Security audit and data management</li>
+        <li>Catalog maintenance</li>
+        <li>24x7 dedicated help desk</li>
+        <li>Coordination with ServiceNow Support</li>
+        <li><strong>CMDB</strong> and Discovery maintenance, keeping Service Mapping accurate as infrastructure changes</li>
+      </ul>
+    </div>
+    <div class="cap-media">[ Visual: Admin & Support illustration placeholder ]</div>
+  </div>
+</section>
+
+<section class="cap-block">
+  <div class="wrap cap-grid">
+    <div class="cap-text">
+      <div class="eyebrow">IMPLEMENTATION</div>
+      <h2>Implementation</h2>
+      <ul>
+        <li>Customization of out-of-the-box ServiceNow modules</li>
+        <li>Implementation across the ServiceNow portfolio — ITSM, ITOM, CSM, FSM, HRSD, SPM, and beyond</li>
+        <li>AI Agent and Now Assist deployment and configuration</li>
+        <li>Module-specific AI setup — Predictive Intelligence and Advanced Work Assignment for CSM, Schedule Optimization for FSM, Predictive AIOps for ITOM</li>
+        <li>Custom application development using App Engine and Build Agent on the Now Platform</li>
+        <li>New catalog development and portal customization using the Now Experience UI Builder</li>
+        <li>Configuration of Mid-Servers and ServiceNow Discovery</li>
+        <li>Platform and version upgrades</li>
+      </ul>
+    </div>
+    <div class="cap-media">[ Visual: Implementation illustration placeholder ]</div>
+  </div>
+</section>
+
+<section class="cap-block">
+  <div class="wrap cap-grid reverse">
+    <div class="cap-text">
+      <div class="eyebrow">INTEGRATION</div>
+      <h2>Integration</h2>
+      <ul>
+        <li>Integration of IaaS, SaaS, ERP, legacy systems, and social apps via <strong>IntegrationHub</strong></li>
+        <li>Identity provider integration for SSO</li>
+        <li>CTI and messaging solution integration</li>
+        <li>AI Agent integration with third-party systems and data sources via IntegrationHub spokes and custom web services</li>
+        <li>Integration across ServiceNow modules and processes via native APIs and Flow Designer actions</li>
+      </ul>
+    </div>
+    <div class="cap-media">[ Visual: Integration illustration placeholder ]</div>
+  </div>
+</section>
+
+<section class="cap-block" style="border-bottom:none;">
+  <div class="wrap cap-grid">
+    <div class="cap-text">
+      <div class="eyebrow">MIGRATION</div>
+      <h2>Migration</h2>
+      <ul>
+        <li>Data migration from legacy ticketing applications to ServiceNow</li>
+        <li>Wiki and Knowledge Base migration from cloud-based systems, structured to power AI Search and Now Assist from day one</li>
+        <li>Platform migration from older to newer ServiceNow versions</li>
+        <li>Migrating legacy chatbots and virtual agents onto AI Agents and Now Assist</li>
+        <li>Data mapping templates for migration to and from the ServiceNow platform</li>
+      </ul>
+    </div>
+    <div class="cap-media">[ Visual: Migration illustration placeholder ]</div>
+  </div>
+</section>
+
+<section class="contact-cta">
+  <div class="wrap">
+    <h2>Let's Talk!</h2>
+    <p>Talk to a ServiceNow architect about AI Agents, Now Assist, or your next implementation.</p>
+    <a class="cta-btn" href="#">Send a Message</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Exterprise, LLC — ServiceNow Premier Partner, Consulting &amp; Implementation</div>
+</footer>
+
+</body>
+</html>

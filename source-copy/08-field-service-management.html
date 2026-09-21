@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Service Management — Exterprise (Page Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1B4A; --ink-soft:#1D2F63; --paper:#FFFFFF; --paper-dim:#F3F5FA;
+    --teal:#E2231A; --teal-deep:#B81810; --amber:#F2A730; --amber-deep:#B8720F;
+    --green:#2E7D32; --slate:#4B5468; --line:#E1E4EC; --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Source Serif 4', serif; font-weight:600; margin:0; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  p{margin:0;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  header{background:var(--ink); color:#F0F2F8; padding:16px 0;}
+  .header-row{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .logo{font-family:'Source Serif 4', serif; font-size:22px;}
+  nav{display:flex; gap:28px; font-size:14.5px;}
+  nav a{opacity:0.88;} nav a:hover{opacity:1;}
+  .badge-chip{display:flex; align-items:center; gap:8px; border:1px solid rgba(242,167,48,0.55); padding:6px 12px 6px 8px; border-radius:3px; font-size:12.5px; color:#F2C87A; white-space:nowrap;}
+  .cta-btn{background:var(--teal); color:#fff; padding:9px 18px; border-radius:3px; font-size:14px; font-weight:500; white-space:nowrap; display:inline-block;}
+  .cta-btn:hover{background:var(--teal-deep);}
+
+  .page-hero{background:var(--ink-soft); color:#F0F2F8; padding:44px 0 38px;}
+  .crumb{font-size:13px; color:rgba(240,242,248,0.65); margin-bottom:14px;}
+  .crumb a{color:rgba(240,242,248,0.85);}
+  .page-hero .kicker{font-size:12.5px; font-weight:600; letter-spacing:0.01em; color:var(--amber); margin-bottom:10px;}
+  .page-hero h1{font-size:32px; color:#fff; max-width:22ch;}
+  .page-hero .sub{margin-top:10px; font-size:16px; color:rgba(240,242,248,0.82); max-width:60ch;}
+
+  .intro-section{padding:52px 0; border-bottom:1px solid var(--line);}
+  .intro-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:52px; align-items:start;}
+  .intro-grid h2{font-size:26px; max-width:20ch; margin-bottom:16px;}
+  .intro-grid p{font-size:15px; color:var(--slate); line-height:1.65; margin-top:14px;}
+  .intro-grid p:first-of-type{margin-top:0;}
+  .intro-grid strong{color:var(--ink);}
+  .intro-media{background:var(--paper-dim); border:1px solid var(--line); min-height:220px; display:flex; align-items:center; justify-content:center; color:var(--slate); font-size:12.5px; text-align:center; padding:20px;}
+
+  .plain-section{padding:52px 0; border-bottom:1px solid var(--line);}
+  .plain-section h2{font-size:24px; max-width:26ch; margin-bottom:16px;}
+  .plain-section .lede{font-size:15px; color:var(--slate); line-height:1.65; max-width:74ch;}
+  .plain-section p{font-size:15px; color:var(--slate); line-height:1.65; max-width:74ch; margin-top:14px;}
+
+  /* stat bar (numeric, dark band) — e.g. ITSM highlights */
+  .highlights{background:var(--ink); color:#F0F2F8; padding:30px 0;}
+  .highlights .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .highlights .h-item{border-left:1px solid rgba(240,242,248,0.18); padding-left:18px;}
+  .highlights .h-item:first-child{border-left:none; padding-left:0;}
+  .highlights .h-num{font-family:'Source Serif 4', serif; font-size:22px; color:var(--amber); line-height:1.2;}
+  .highlights .h-lbl{font-size:12.5px; color:rgba(240,242,248,0.75); margin-top:6px; line-height:1.4;}
+
+  /* detail cards — e.g. FSM's 3 highlight blocks, ITOM's 4 taglines */
+  .detail-cards-section{padding:54px 0; border-bottom:1px solid var(--line);}
+  .detail-cards-section h2{font-size:24px; margin-bottom:14px;}
+  .detail-cards-section .section-lede{font-size:15px; color:var(--slate); max-width:74ch; margin-bottom:32px; line-height:1.6;}
+  .detail-cards{display:grid; grid-template-columns:repeat(3,1fr);}
+  .detail-cards.cols-4{grid-template-columns:repeat(4,1fr);}
+  .d-card{border-top:2px solid var(--ink); padding:18px 22px 0 0;}
+  .d-card:not(:last-child){border-right:1px solid var(--line); margin-right:22px;}
+  .d-card .tagline{font-size:12px; color:var(--amber-deep); font-weight:600; margin-bottom:8px;}
+  .d-card h3{font-size:16.5px; margin-bottom:8px; line-height:1.32;}
+  .d-card p{font-size:13.5px; color:var(--slate); line-height:1.55;}
+
+  /* label grid — e.g. CSM/HRSD's 6-item bullet highlights */
+  .label-grid-section{padding:52px 0; border-bottom:1px solid var(--line); background:var(--paper-dim);}
+  .label-grid-section h2{font-size:24px; margin-bottom:10px;}
+  .label-grid-section .section-lede{font-size:15px; color:var(--slate); max-width:74ch; margin-bottom:28px; line-height:1.6;}
+  .label-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 40px;}
+  .label-item{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--ink); padding:13px 0; border-bottom:1px solid var(--line);}
+  .label-item .mark{width:8px; height:8px; background:var(--amber); margin-top:6px; flex:none; border-radius:1px;}
+  .label-item .new-note{display:block; font-size:12px; color:var(--amber-deep); margin-top:3px; font-weight:500;}
+
+  /* dual stat callout — CSM's two proof stats */
+  .dual-stat-section{padding:52px 0; border-bottom:1px solid var(--line);}
+  .dual-stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  .stat-callout .stat-line{font-family:'Source Serif 4', serif; font-size:19px; color:var(--ink); line-height:1.4;}
+  .stat-callout .stat-source{font-size:12px; color:var(--slate); margin-top:8px; margin-bottom:16px;}
+  .stat-callout p{font-size:14.5px; color:var(--slate); line-height:1.6;}
+
+  /* 3-step process — Now Platform's Design/Develop/Deploy */
+  .process-section{padding:54px 0; border-bottom:1px solid var(--line);}
+  .process-section h2{font-size:24px; margin-bottom:10px;}
+  .process-section .lede{font-size:15px; color:var(--slate); max-width:70ch; margin-bottom:30px; line-height:1.6;}
+  .process-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .process-step .num{font-family:'Source Serif 4', serif; font-size:24px; color:var(--amber-deep);}
+  .process-step h3{font-size:16.5px; margin:10px 0 8px;}
+  .process-step p{font-size:13.5px; color:var(--slate); line-height:1.55;}
+
+  /* video panel */
+  .video-panel{padding:44px 0 8px;}
+  .video-frame{position:relative; aspect-ratio:16/6.2; background:var(--paper-dim); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
+  .video-frame .play{width:52px; height:52px; border-radius:50%; background:var(--teal); color:#fff; display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .video-caption{font-size:13.5px; color:var(--slate); margin-top:10px;}
+
+  /* top-challenges — FSM's 5-item pain-point band */
+  .challenges-section{padding:54px 0; border-bottom:1px solid var(--line); background:var(--ink); color:#F0F2F8;}
+  .challenges-section h2{font-size:22px; color:#fff;}
+  .challenges-section .lede{font-size:14px; color:rgba(240,242,248,0.75); margin-top:8px;}
+  .challenges-list{display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(240,242,248,0.15); border:1px solid rgba(240,242,248,0.15); margin-top:26px;}
+  .chal-item{background:var(--ink); padding:18px 16px;}
+  .chal-item .chal-title{font-size:13.5px; font-weight:600; margin-bottom:8px; line-height:1.3;}
+  .chal-item p{font-size:12px; color:rgba(240,242,248,0.72); line-height:1.5;}
+
+  .contact-cta{background:var(--ink); color:#F0F2F8; padding:52px 0; text-align:center;}
+  .contact-cta h2{color:#fff; font-size:26px;}
+  .contact-cta p{margin-top:10px; color:rgba(240,242,248,0.8); font-size:14.5px;}
+  .contact-cta .cta-btn{margin-top:18px;}
+  footer{background:var(--paper-dim); padding:24px 0; font-size:13px; color:var(--slate); text-align:center;}
+
+  @media (max-width:900px){
+    .intro-grid, .dual-stat-grid, .label-grid{grid-template-columns:1fr;}
+    .highlights .wrap{grid-template-columns:repeat(2,1fr); row-gap:20px;}
+    .highlights .h-item{border-left:none; padding-left:0;}
+    .detail-cards, .detail-cards.cols-4, .process-steps{grid-template-columns:1fr; row-gap:18px;}
+    .d-card{border-right:none !important; margin-right:0 !important;}
+    .challenges-list{grid-template-columns:1fr 1fr;}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="logo">Exterprise</div>
+    <nav>
+      <a href="../exterprise-servicenow-page-mockup.html">ServiceNow</a>
+      <a href="ai-agents-now-assist.html">AI &amp; Agentic Solutions</a>
+      <a href="#">Industries</a>
+      <a href="#">Smartsourcing</a>
+      <a href="#">About</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="badge-chip"><img src="assets/servicenow-premier-partner-badge.png" alt="" style="width:20px; height:20px; border-radius:4px; flex:none;">ServiceNow Premier Partner</div>
+      <a class="cta-btn" href="#">Talk to Us</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="../exterprise-homepage-mockup.html">Home</a> / <a href="../exterprise-servicenow-page-mockup.html">ServiceNow</a> / Field Service Management</div>
+    <div class="kicker">SERVICENOW · FSM</div>
+    <h1>Field Service Management</h1>
+    <p class="sub">For faster response time and prevention of issues, powered by Schedule Optimization and AI Agents.</p>
+  </div>
+</section>
+<section class="intro-section">
+  <div class="wrap intro-grid">
+    <div>
+      <h2>Modernized Field Service Management</h2>
+      <p>The ServiceNow Field Service Management application helps organizations manage work tasks performed on assets in the field. It matches tasks to agents based on skills, location, technician availability, and parts/inventory. Agents can record details on assigned tasks like completion status, travel time to jobs, and add pictures and time spent.</p>
+      <p><strong>Schedule Optimization</strong> — ServiceNow's AI-driven scheduling engine — takes this further, continuously re-matching the best-fit technician as conditions change: a cancellation, a delayed part, a higher-priority job. Its Explainability layer shows dispatchers exactly why each assignment was made, so the logic behind routes and timing is never a black box.</p>
+      <p>Two AI Agents extend this further: the <strong>Shift Management AI Agent</strong> closes coverage gaps automatically by matching available technicians to open shifts based on skills, location, and constraints, and the <strong>Create Work Order AI Agent</strong> turns a technician's field notes and photos into a fully structured work order in seconds — no manual data entry.</p>
+    </div>
+    <div class="intro-media">[ Visual: FSM technician workflow illustration placeholder ]</div>
+  </div>
+</section>
+
+<section class="detail-cards-section">
+  <div class="wrap">
+    <h2>FSM Highlights</h2>
+    <p class="section-lede">Exterprise's team of experts ensures that your Field Services team:</p>
+    <div class="detail-cards">
+      <div class="d-card">
+        <h3>Solves customer issues on the first visit</h3>
+        <p><strong>Schedule Optimization</strong> automatically assigns the most qualified technician based on skills, location, availability, and parts on hand — with <strong>Territory Planning</strong> and <strong>Capacity &amp; Reservations</strong> making sure the right crew is actually available before the job gets booked, not after.</p>
+      </div>
+      <div class="d-card">
+        <h3>Maximizes uptime</h3>
+        <p><strong>Predictive Intelligence</strong> analyzes asset data, IoT sensor readings, and usage patterns to flag likely failures before they happen, automatically triggering preventive maintenance work orders instead of waiting on a breakdown.</p>
+      </div>
+      <div class="d-card">
+        <h3>Improves efficiency</h3>
+        <p>Now Assist for Field Service's mobile copilot — built into the FSM mobile app with offline access — generates on-site guidance, summaries, and notes, backed by remote visual assistance and AR support for the jobs that need a second set of eyes. Create and meet SLAs, optimize schedules, and keep workers safe, with <strong>Performance Analytics</strong> tracking it all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="challenges-section">
+  <div class="wrap">
+    <h2>Top Challenges</h2>
+    <p class="lede">Faced by field service technicians — and how the platform's current capability addresses each one.</p>
+    <div class="challenges-list">
+      <div class="chal-item"><div class="chal-title">Pre-visit review of service/asset history</div><p>Full asset history, warranty status, and past service records surfaced automatically on the work order — no digging through separate systems before dispatch.</p></div>
+      <div class="chal-item"><div class="chal-title">Access to service manuals</div><p>Manuals and documentation linked directly to the asset record, available offline in the FSM mobile app.</p></div>
+      <div class="chal-item"><div class="chal-title">Access to knowledge base</div><p>Searchable offline, with Now Assist for Field Service surfacing similar past resolutions automatically.</p></div>
+      <div class="chal-item"><div class="chal-title">Visibility of parts &amp; inventory</div><p>Real-time stock visibility across ERP-connected inventory via IntegrationHub, so a technician never commits to a fix without the part in hand.</p></div>
+      <div class="chal-item"><div class="chal-title">Training videos</div><p>Attached directly to task types, with Now Assist for Field Service's mobile copilot walking newer technicians through unfamiliar jobs step by step.</p></div>
+    </div>
+  </div>
+</section>
+<section class="contact-cta">
+  <div class="wrap">
+    <h2>Let's Talk!</h2>
+    <p>Don't wait until tomorrow. Talk to one of our consultants today about Field Service Management.</p>
+    <a class="cta-btn" href="#">Send a Message</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Exterprise, LLC — ServiceNow Premier Partner, Consulting &amp; Implementation</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"name":"exterprise-website","private":true,"type":"module","scripts":{"dev":"vite","build":"python3 scripts/build.py"},"devDependencies":{"vite":"7.1.3"}}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exterprise — ServiceNow Premier Partner (Homepage Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1B4A;        /* Exterprise navy, from wordmark */
+    --ink-soft:#1D2F63;
+    --paper:#FFFFFF;
+    --paper-dim:#F3F5FA;
+    --teal:#E2231A;       /* Exterprise red, from the logo swoosh — primary CTA */
+    --teal-deep:#B81810;
+    --amber:#F2A730;      /* Exterprise gold, from the logo mark — Premier accent */
+    --amber-deep:#B8720F; /* deeper gold, readable as text on white */
+    --green:#2E7D32;      /* Exterprise green, from "extend your enterprise" tagline */
+    --slate:#4B5468;
+    --line:#E1E4EC;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  /* HEADER */
+  header{
+    background:var(--ink);
+    color:#F0F2F8;
+    padding:16px 0;
+  }
+  .header-row{
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .logo{
+    font-family:'Source Serif 4', serif;
+    font-size:22px;
+    letter-spacing:0.01em;
+  }
+  nav{display:flex; gap:28px; font-size:14.5px; align-items:center;}
+  nav a{text-decoration:none; opacity:0.88;}
+  nav a:hover{opacity:1;}
+  .badge-chip{
+    display:flex; align-items:center; gap:8px;
+    border:1px solid rgba(184,134,59,0.55);
+    padding:6px 12px 6px 8px;
+    border-radius:3px;
+    font-size:12.5px;
+    color:#F2C87A;
+    white-space:nowrap;
+  }
+  .badge-chip .dot{
+    width:7px; height:7px; border-radius:50%; background:var(--amber);
+    flex:none;
+  }
+  .cta-btn{
+    background:var(--teal);
+    color:#fff;
+    padding:9px 18px;
+    border-radius:3px;
+    font-size:14px;
+    text-decoration:none;
+    font-weight:500;
+    white-space:nowrap;
+  }
+  .cta-btn:hover{background:var(--teal-deep);}
+
+  /* HERO */
+  .hero{
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.55fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .eyebrow-line{
+    font-size:14px;
+    color:var(--amber-deep);
+    margin-bottom:18px;
+    font-weight:500;
+  }
+  .hero h1{
+    font-size:47px;
+    line-height:1.12;
+    color:var(--ink);
+    max-width:15ch;
+  }
+  .hero p.sub{
+    margin-top:22px;
+    font-size:18px;
+    line-height:1.55;
+    color:var(--slate);
+    max-width:46ch;
+  }
+  .hero-ctas{
+    margin-top:32px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .cta-secondary{
+    color:var(--ink);
+    text-decoration:none;
+    font-size:14.5px;
+    font-weight:500;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+  }
+
+  /* CREDENTIAL CARD (badge slot, not a generic SaaS card) */
+  .credential{
+    border:1px solid var(--ink);
+    background:var(--ink);
+    color:#F0F2F8;
+    padding:26px 26px 22px;
+  }
+  .credential .badge-slot{
+    border:1px dashed rgba(240,242,248,0.4);
+    padding:22px 16px;
+    text-align:center;
+    font-size:12px;
+    color:rgba(240,242,248,0.55);
+    letter-spacing:0.02em;
+    margin-bottom:20px;
+    line-height:1.5;
+  }
+  .credential h3{
+    font-size:19px;
+    color:#F0F2F8;
+    line-height:1.3;
+  }
+  .credential .sub-line{
+    font-size:13.5px;
+    color:rgba(240,242,248,0.65);
+    margin-top:6px;
+  }
+  .stat-row{
+    display:flex;
+    margin-top:22px;
+    border-top:1px solid rgba(240,242,248,0.18);
+    padding-top:18px;
+    gap:22px;
+  }
+  .stat{flex:1;}
+  .stat .num{
+    font-family:'Source Serif 4', serif;
+    font-size:26px;
+    color:var(--amber);
+    line-height:1;
+  }
+  .stat .lbl{
+    font-size:11.5px;
+    color:rgba(240,242,248,0.6);
+    margin-top:6px;
+    line-height:1.4;
+  }
+  .verify-link{
+    display:inline-block;
+    margin-top:18px;
+    font-size:12.5px;
+    color:#F2C87A;
+    text-decoration:none;
+    border-bottom:1px solid rgba(242,200,122,0.4);
+  }
+
+  /* AI CAPABILITY RAIL */
+  .rail-section{
+    padding:64px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .rail-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:40px;
+  }
+  .rail-head h2{font-size:30px; max-width:20ch;}
+  .rail-head p{
+    font-size:15px;
+    color:var(--slate);
+    max-width:34ch;
+    margin:0;
+  }
+  .rail{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+  }
+  .rail-item{
+    border-top:1px solid var(--ink);
+    padding:22px 26px 0 0;
+  }
+  .rail-item:not(:last-child){
+    border-right:1px solid var(--line);
+    margin-right:26px;
+  }
+  .rail-item .tag{
+    font-size:12px;
+    color:var(--ink-soft);
+    font-weight:600;
+  }
+  .rail-item h3{
+    font-size:20px;
+    margin-top:10px;
+    color:var(--ink);
+    line-height:1.28;
+  }
+  .rail-item p{
+    font-size:14.5px;
+    color:var(--slate);
+    line-height:1.55;
+    margin-top:10px;
+  }
+
+  /* TRUST STRIP */
+  .trust{
+    padding:40px 0;
+    background:var(--paper-dim);
+  }
+  .trust-row{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .trust-item{
+    font-size:13.5px;
+    color:var(--slate);
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .trust-item .n{
+    font-family:'Source Serif 4', serif;
+    font-size:22px;
+    color:var(--ink);
+  }
+
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr;}
+    .rail{grid-template-columns:1fr; row-gap:24px;}
+    .rail-item{border-right:none !important; margin-right:0 !important; padding-right:0;}
+    nav{display:none;}
+    .hero h1{font-size:36px; max-width:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="logo">Exterprise</div>
+    <nav>
+      <a href="#">ServiceNow</a>
+      <a href="#">AI &amp; Agentic Solutions</a>
+      <a href="#">Industries</a>
+      <a href="#">Smartsourcing</a>
+      <a href="#">About</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="badge-chip"><img src="assets/servicenow-premier-partner-badge.png" alt="" style="width:20px; height:20px; border-radius:4px; flex:none;">ServiceNow Premier Partner</div>
+      <a class="cta-btn" href="#">Talk to Us</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-line">ServiceNow Premier Partner — Consulting &amp; Implementation</div>
+      <h1>Put ServiceNow's AI to work, without the guesswork.</h1>
+      <p class="sub">Exterprise designs, deploys, and governs AI Agents, Now Assist, and the Now Platform for enterprises that need it done right the first time — not experimented on.</p>
+      <div class="hero-ctas">
+        <a class="cta-btn" href="#">See what AI Agents can automate</a>
+        <a class="cta-secondary" href="#">Talk to a ServiceNow architect</a>
+      </div>
+    </div>
+
+    <div class="credential">
+      <div class="badge-slot" style="border:none; padding:0; margin-bottom:20px;">
+        <img src="assets/servicenow-premier-partner-badge.png" alt="ServiceNow Premier Partner — Consulting & Implementation" style="width:150px; height:auto; display:block; margin:0 auto; border-radius:8px;">
+      </div>
+      <h3>Premier Partner, Consulting &amp; Implementation</h3>
+      <div class="sub-line">Verified on ServiceNow's Partner Finder</div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="num">4.5/5</div>
+          <div class="lbl">Customer<br>satisfaction score</div>
+        </div>
+        <div class="stat">
+          <div class="num">60+</div>
+          <div class="lbl">ServiceNow-accredited<br>professionals</div>
+        </div>
+        <div class="stat">
+          <div class="num">3</div>
+          <div class="lbl">Now Assist<br>certifications held</div>
+        </div>
+      </div>
+      <a class="verify-link" href="#">View our Partner Finder profile →</a>
+    </div>
+  </div>
+</section>
+
+<section class="rail-section">
+  <div class="wrap">
+    <div class="rail-head">
+      <h2>ServiceNow's AI, deployed with intent</h2>
+      <p>The current wave of ServiceNow capability, and what Exterprise does with each one.</p>
+    </div>
+    <div class="rail">
+      <div class="rail-item">
+        <div class="tag">AI AGENTS</div>
+        <h3>Agents that finish the work, not just suggest it</h3>
+        <p>Exterprise designs autonomous agents that triage, resolve, and escalate with full context — built with the guardrails your business actually needs.</p>
+      </div>
+      <div class="rail-item">
+        <div class="tag">NOW ASSIST</div>
+        <h3>Generative AI, tuned to your workflows</h3>
+        <p>Certified implementation across ITSM, HR Service Delivery, and Creator means Now Assist gets configured around how your teams actually work.</p>
+      </div>
+      <div class="rail-item">
+        <div class="tag">AUTONOMOUS WORKFORCE</div>
+        <h3>Multiple agents, one coordinated operation</h3>
+        <p>As agents multiply across departments, Exterprise architects the orchestration and AI Control Tower governance to keep them working as one workforce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap trust-row">
+    <div class="trust-item"><span class="n" style="color:var(--amber-deep);">Premier</span> Consulting &amp; Implementation segment</div>
+    <div class="trust-item"><span class="n" style="color:var(--ink);">CTA</span> Certified Technical Architect on staff</div>
+    <div class="trust-item"><span class="n" style="color:var(--green);">5</span> focus industries: Financial Services, Government, Healthcare, Insurance, Manufacturing</div>
+  </div>
+</section>
+
+</body>
+</html>

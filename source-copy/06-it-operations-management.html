@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Operations Management — Exterprise (Page Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1B4A; --ink-soft:#1D2F63; --paper:#FFFFFF; --paper-dim:#F3F5FA;
+    --teal:#E2231A; --teal-deep:#B81810; --amber:#F2A730; --amber-deep:#B8720F;
+    --green:#2E7D32; --slate:#4B5468; --line:#E1E4EC; --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Source Serif 4', serif; font-weight:600; margin:0; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  p{margin:0;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  header{background:var(--ink); color:#F0F2F8; padding:16px 0;}
+  .header-row{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .logo{font-family:'Source Serif 4', serif; font-size:22px;}
+  nav{display:flex; gap:28px; font-size:14.5px;}
+  nav a{opacity:0.88;} nav a:hover{opacity:1;}
+  .badge-chip{display:flex; align-items:center; gap:8px; border:1px solid rgba(242,167,48,0.55); padding:6px 12px 6px 8px; border-radius:3px; font-size:12.5px; color:#F2C87A; white-space:nowrap;}
+  .cta-btn{background:var(--teal); color:#fff; padding:9px 18px; border-radius:3px; font-size:14px; font-weight:500; white-space:nowrap; display:inline-block;}
+  .cta-btn:hover{background:var(--teal-deep);}
+
+  .page-hero{background:var(--ink-soft); color:#F0F2F8; padding:44px 0 38px;}
+  .crumb{font-size:13px; color:rgba(240,242,248,0.65); margin-bottom:14px;}
+  .crumb a{color:rgba(240,242,248,0.85);}
+  .page-hero .kicker{font-size:12.5px; font-weight:600; letter-spacing:0.01em; color:var(--amber); margin-bottom:10px;}
+  .page-hero h1{font-size:32px; color:#fff; max-width:22ch;}
+  .page-hero .sub{margin-top:10px; font-size:16px; color:rgba(240,242,248,0.82); max-width:60ch;}
+
+  .intro-section{padding:52px 0; border-bottom:1px solid var(--line);}
+  .intro-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:52px; align-items:start;}
+  .intro-grid h2{font-size:26px; max-width:20ch; margin-bottom:16px;}
+  .intro-grid p{font-size:15px; color:var(--slate); line-height:1.65; margin-top:14px;}
+  .intro-grid p:first-of-type{margin-top:0;}
+  .intro-grid strong{color:var(--ink);}
+  .intro-media{background:var(--paper-dim); border:1px solid var(--line); min-height:220px; display:flex; align-items:center; justify-content:center; color:var(--slate); font-size:12.5px; text-align:center; padding:20px;}
+
+  .plain-section{padding:52px 0; border-bottom:1px solid var(--line);}
+  .plain-section h2{font-size:24px; max-width:26ch; margin-bottom:16px;}
+  .plain-section .lede{font-size:15px; color:var(--slate); line-height:1.65; max-width:74ch;}
+  .plain-section p{font-size:15px; color:var(--slate); line-height:1.65; max-width:74ch; margin-top:14px;}
+
+  /* stat bar (numeric, dark band) — e.g. ITSM highlights */
+  .highlights{background:var(--ink); color:#F0F2F8; padding:30px 0;}
+  .highlights .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .highlights .h-item{border-left:1px solid rgba(240,242,248,0.18); padding-left:18px;}
+  .highlights .h-item:first-child{border-left:none; padding-left:0;}
+  .highlights .h-num{font-family:'Source Serif 4', serif; font-size:22px; color:var(--amber); line-height:1.2;}
+  .highlights .h-lbl{font-size:12.5px; color:rgba(240,242,248,0.75); margin-top:6px; line-height:1.4;}
+
+  /* detail cards — e.g. FSM's 3 highlight blocks, ITOM's 4 taglines */
+  .detail-cards-section{padding:54px 0; border-bottom:1px solid var(--line);}
+  .detail-cards-section h2{font-size:24px; margin-bottom:14px;}
+  .detail-cards-section .section-lede{font-size:15px; color:var(--slate); max-width:74ch; margin-bottom:32px; line-height:1.6;}
+  .detail-cards{display:grid; grid-template-columns:repeat(3,1fr);}
+  .detail-cards.cols-4{grid-template-columns:repeat(4,1fr);}
+  .d-card{border-top:2px solid var(--ink); padding:18px 22px 0 0;}
+  .d-card:not(:last-child){border-right:1px solid var(--line); margin-right:22px;}
+  .d-card .tagline{font-size:12px; color:var(--amber-deep); font-weight:600; margin-bottom:8px;}
+  .d-card h3{font-size:16.5px; margin-bottom:8px; line-height:1.32;}
+  .d-card p{font-size:13.5px; color:var(--slate); line-height:1.55;}
+
+  /* label grid — e.g. CSM/HRSD's 6-item bullet highlights */
+  .label-grid-section{padding:52px 0; border-bottom:1px solid var(--line); background:var(--paper-dim);}
+  .label-grid-section h2{font-size:24px; margin-bottom:10px;}
+  .label-grid-section .section-lede{font-size:15px; color:var(--slate); max-width:74ch; margin-bottom:28px; line-height:1.6;}
+  .label-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 40px;}
+  .label-item{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--ink); padding:13px 0; border-bottom:1px solid var(--line);}
+  .label-item .mark{width:8px; height:8px; background:var(--amber); margin-top:6px; flex:none; border-radius:1px;}
+  .label-item .new-note{display:block; font-size:12px; color:var(--amber-deep); margin-top:3px; font-weight:500;}
+
+  /* dual stat callout — CSM's two proof stats */
+  .dual-stat-section{padding:52px 0; border-bottom:1px solid var(--line);}
+  .dual-stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  .stat-callout .stat-line{font-family:'Source Serif 4', serif; font-size:19px; color:var(--ink); line-height:1.4;}
+  .stat-callout .stat-source{font-size:12px; color:var(--slate); margin-top:8px; margin-bottom:16px;}
+  .stat-callout p{font-size:14.5px; color:var(--slate); line-height:1.6;}
+
+  /* 3-step process — Now Platform's Design/Develop/Deploy */
+  .process-section{padding:54px 0; border-bottom:1px solid var(--line);}
+  .process-section h2{font-size:24px; margin-bottom:10px;}
+  .process-section .lede{font-size:15px; color:var(--slate); max-width:70ch; margin-bottom:30px; line-height:1.6;}
+  .process-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .process-step .num{font-family:'Source Serif 4', serif; font-size:24px; color:var(--amber-deep);}
+  .process-step h3{font-size:16.5px; margin:10px 0 8px;}
+  .process-step p{font-size:13.5px; color:var(--slate); line-height:1.55;}
+
+  /* video panel */
+  .video-panel{padding:44px 0 8px;}
+  .video-frame{position:relative; aspect-ratio:16/6.2; background:var(--paper-dim); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
+  .video-frame .play{width:52px; height:52px; border-radius:50%; background:var(--teal); color:#fff; display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .video-caption{font-size:13.5px; color:var(--slate); margin-top:10px;}
+
+  /* top-challenges — FSM's 5-item pain-point band */
+  .challenges-section{padding:54px 0; border-bottom:1px solid var(--line); background:var(--ink); color:#F0F2F8;}
+  .challenges-section h2{font-size:22px; color:#fff;}
+  .challenges-section .lede{font-size:14px; color:rgba(240,242,248,0.75); margin-top:8px;}
+  .challenges-list{display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(240,242,248,0.15); border:1px solid rgba(240,242,248,0.15); margin-top:26px;}
+  .chal-item{background:var(--ink); padding:18px 16px;}
+  .chal-item .chal-title{font-size:13.5px; font-weight:600; margin-bottom:8px; line-height:1.3;}
+  .chal-item p{font-size:12px; color:rgba(240,242,248,0.72); line-height:1.5;}
+
+  .contact-cta{background:var(--ink); color:#F0F2F8; padding:52px 0; text-align:center;}
+  .contact-cta h2{color:#fff; font-size:26px;}
+  .contact-cta p{margin-top:10px; color:rgba(240,242,248,0.8); font-size:14.5px;}
+  .contact-cta .cta-btn{margin-top:18px;}
+  footer{background:var(--paper-dim); padding:24px 0; font-size:13px; color:var(--slate); text-align:center;}
+
+  @media (max-width:900px){
+    .intro-grid, .dual-stat-grid, .label-grid{grid-template-columns:1fr;}
+    .highlights .wrap{grid-template-columns:repeat(2,1fr); row-gap:20px;}
+    .highlights .h-item{border-left:none; padding-left:0;}
+    .detail-cards, .detail-cards.cols-4, .process-steps{grid-template-columns:1fr; row-gap:18px;}
+    .d-card{border-right:none !important; margin-right:0 !important;}
+    .challenges-list{grid-template-columns:1fr 1fr;}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="logo">Exterprise</div>
+    <nav>
+      <a href="../exterprise-servicenow-page-mockup.html">ServiceNow</a>
+      <a href="ai-agents-now-assist.html">AI &amp; Agentic Solutions</a>
+      <a href="#">Industries</a>
+      <a href="#">Smartsourcing</a>
+      <a href="#">About</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="badge-chip"><img src="assets/servicenow-premier-partner-badge.png" alt="" style="width:20px; height:20px; border-radius:4px; flex:none;">ServiceNow Premier Partner</div>
+      <a class="cta-btn" href="#">Talk to Us</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="../exterprise-homepage-mockup.html">Home</a> / <a href="../exterprise-servicenow-page-mockup.html">ServiceNow</a> / IT Operations Management</div>
+    <div class="kicker">SERVICENOW · ITOM</div>
+    <h1>IT Operations Management</h1>
+    <p class="sub">Right-size and optimize your IT investments with Predictive AIOps.</p>
+  </div>
+</section>
+<section class="intro-section">
+  <div class="wrap intro-grid">
+    <div>
+      <h2>Evolve to the next stage in ITSM</h2>
+      <p>IT Operations Management (ITOM) refers to all the technology, services, and infrastructure an IT department provides — applications, storage, networking, hardware, and software. The goal of ITOM is to ensure that everything is running optimally across every server and node. <strong>Predictive AIOps</strong> takes this further, spotting anomalies and predicting service issues before they trigger an outage.</p>
+    </div>
+    <div class="intro-media">[ Visual: ITOM infrastructure illustration placeholder ]</div>
+  </div>
+</section>
+
+<section class="plain-section">
+  <div class="wrap">
+    <h2>ITOM and ITSM: A dynamic duo</h2>
+    <p class="lede">IT Operations Management (ITOM) focuses on the processes IT teams follow to manage themselves and their internal activities, while IT Service Management (ITSM) focuses on how services are delivered by IT teams to users — increasingly, the same anomaly a Predictive AIOps alert catches on the ITOM side becomes the incident that Predictive Intelligence classifies and routes automatically on the ITSM side.</p>
+    <p>ServiceNow ITOM delivers a comprehensive, integrated set of capabilities — <strong>Event Management</strong>, <strong>Metric Intelligence</strong>, and <strong>Health Log Analytics</strong> — that builds seamlessly on your existing ServiceNow ITSM investment.</p>
+    <p>Exterprise ensures your IT teams have full visibility into every part of the infrastructure — <strong>Discovery</strong> and <strong>CMDB</strong> mapping keep configuration data accurate, and, increasingly, the AI Agents and automations acting on that data stay visible through AI Control Tower governance.</p>
+  </div>
+</section>
+
+<section class="detail-cards-section">
+  <div class="wrap">
+    <h2>ITOM Highlights</h2>
+    <div class="detail-cards cols-4">
+      <div class="d-card">
+        <div class="tagline">VISIBILITY</div>
+        <h3>Enhance company-wide visibility</h3>
+        <p>of IT resources with <strong>Service Mapping</strong> and <strong>Discovery</strong>, keeping your CMDB accurate as infrastructure changes.</p>
+      </div>
+      <div class="d-card">
+        <div class="tagline">PREDICTIVE AIOPS</div>
+        <h3>Manage service health</h3>
+        <p><strong>Predictive AIOps</strong> — combining Event Management, Metric Intelligence, and Health Log Analytics — spots anomalies and predicts issues before they trigger an outage, with AI Agents able to act on routine ones automatically.</p>
+      </div>
+      <div class="d-card">
+        <div class="tagline">AGILITY</div>
+        <h3>Increase agility</h3>
+        <p><strong>Autonomous Service Operations</strong> unifies IT service and operations workflows into one proactive loop, so your cloud environment gets more efficient without adding manual overhead.</p>
+      </div>
+      <div class="d-card">
+        <div class="tagline">TRANSFORMATION</div>
+        <h3>Transform your IT operations</h3>
+        <p>The <strong>Service Operations Workspace</strong>, with certified out-of-the-box <strong>AIOps Dashboards</strong>, turns raw monitoring data into decisions leadership can act on — and evidence of ROI they can point to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="contact-cta">
+  <div class="wrap">
+    <h2>Let's Talk!</h2>
+    <p>Don't wait until tomorrow. Talk to one of our consultants today about IT Operations Management.</p>
+    <a class="cta-btn" href="#">Send a Message</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Exterprise, LLC — ServiceNow Premier Partner, Consulting &amp; Implementation</div>
+</footer>
+
+</body>
+</html>

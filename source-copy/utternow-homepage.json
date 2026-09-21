@@ -1,0 +1,10 @@
+{
+  "source": "https://dev.utternow.ai/",
+  "title": "Your ServiceNow, Now Voice-Activated",
+  "description": "Transform your ServiceNow workflows with natural voice commands. Create tickets, retrieve knowledge, and automate processes—all hands-free.",
+  "voice_input": "Natural speech captured via web, mobile, or phone.",
+  "tagline": "Make Workflows Talk",
+  "animation_source": "https://dev.utternow.ai/assets/utternow-hero-Dq5_zSu9.gif",
+  "colors": {"background": "#0c1520", "accent": "#3ecdc6", "text": "#dae3f3"},
+  "note": "The user expressly requested UtterNow content and motion. Its public animated brand asset is converted to MP4 with its original frames and timing; it is not a demonstration of application functionality."
+}

@@ -1,0 +1,34 @@
+{
+  "source": "https://exterprise.us/",
+  "captured": "2026-09-20",
+  "hero": {"title": "Extend your Enterprise", "description": "Partner with us to leverage our technology-enabled business solutions and extend your enterprise globally!"},
+  "navigation": [
+    {"name":"Home","url":"index.html"},
+    {"name":"Smartsourcing","url":"https://exterprise.us/outsourced-process/"},
+    {"name":"Enterprise","url":"https://exterprise.us/enterprise-solutions/"},
+    {"name":"Technical","url":"https://exterprise.us/technical/"},
+    {"name":"Omnitix","url":"https://omnitix.us/"},
+    {"name":"About","url":"https://exterprise.us/about/"}
+  ],
+  "featured": [
+    {"title":"Enterprise Service Management","description":"Customer Service Management, Field Service Management, IT Service Management, IT Operations Management, Now Platform","url":"servicenow.html","image":"network-servers"},
+    {"title":"Enterprise Data Management","description":"Exterprise’s focus on providing end to end data management solutions for enterprises with its partnership with snowflake","url":"https://exterprise.us/enterprise-data-management/","image":"skyscraper-facade"},
+    {"title":"Optimize your Healthcare Revenue Cycle","description":"Increase revenues and better patient-outcomes with complete transparency.","url":"https://exterprise.us/outsourced-process/healthcare/revenue-cycle-management/","image":"team-computers"}
+  ],
+  "matrix_intro":"Custom, technical services by Exterprise that leverage the latest in technology, people and processes.",
+  "matrix":[
+    {"title":"ServiceNow","description":"Efficient enterprise service management with ServiceNow solutions","url":"servicenow.html"},
+    {"title":"Enterprise Mobility","description":"Bridging the gap between enterprise needs and ease of access via Mobile","url":"https://exterprise.us/outsourced-process/digital-branding-marketing/digital-enablement/"},
+    {"title":"Design Services","description":"Intuitive, digital solutions for your customers – across devices & technologies","url":"https://exterprise.us/outsourced-process/digital-branding-marketing/design-services/"},
+    {"title":"Claims Processing","description":"Claims Processing solutions for managing patient claims, end to end.","url":"https://exterprise.us/outsourced-process/healthcare/claim-processing/"},
+    {"title":"Records Processing","description":"Technical services for records digitization, indexing, search and retrieval","url":"https://exterprise.us/outsourced-process/records-processing/"},
+    {"title":"Digital Marketing","description":"360° marketing services to grow your business, across digital platforms","url":"https://exterprise.us/outsourced-process/digital-branding-marketing/digital-marketing/"}
+  ],
+  "more":[
+    {"title":"Capture Analyze Improve","description":"Derive actionable business insights from aerial imagery using our AI-enabled platform.","url":"https://exterprise.us/enterprise-solutions/ai-image-analytics/"},
+    {"title":"Design, Create & Innovate","description":"Create and innovate with custom technology solutions & design thinking to solve business problems.","url":"https://exterprise.us/outsourced-process/digital-branding-marketing/design-services/"},
+    {"title":"Virtual Employee Empowerment","description":"The V2E program provides the best-in-class professional and personal tools to keep our colleagues happy, healthy and productive.","url":"https://exterprise.us/about/v2e/"},
+    {"title":"Grow your Brand Digitally","description":"Reach more customers across multiple digital channels and enhance your corporate brand.","url":"https://exterprise.us/outsourced-process/digital-branding-marketing/digital-marketing/"},
+    {"title":"Revenue Cycle Management","description":"Effectively manage the entire revenue cycle for healthcare in order to ensure – better cash flow, accelerated revenue realization and increased profitability.","url":"https://exterprise.us/outsourced-process/healthcare/revenue-cycle-management/"}
+  ]
+}

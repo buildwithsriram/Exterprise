@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Portfolio Management — Exterprise (Page Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1B4A; --ink-soft:#1D2F63; --paper:#FFFFFF; --paper-dim:#F3F5FA;
+    --teal:#E2231A; --teal-deep:#B81810; --amber:#F2A730; --amber-deep:#B8720F;
+    --green:#2E7D32; --slate:#4B5468; --line:#E1E4EC; --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Source Serif 4', serif; font-weight:600; margin:0; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  p{margin:0;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  header{background:var(--ink); color:#F0F2F8; padding:16px 0;}
+  .header-row{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .logo{font-family:'Source Serif 4', serif; font-size:22px;}
+  nav{display:flex; gap:28px; font-size:14.5px;}
+  nav a{opacity:0.88;} nav a:hover{opacity:1;}
+  .badge-chip{display:flex; align-items:center; gap:8px; border:1px solid rgba(242,167,48,0.55); padding:6px 12px 6px 8px; border-radius:3px; font-size:12.5px; color:#F2C87A; white-space:nowrap;}
+  .cta-btn{background:var(--teal); color:#fff; padding:9px 18px; border-radius:3px; font-size:14px; font-weight:500; white-space:nowrap; display:inline-block;}
+  .cta-btn:hover{background:var(--teal-deep);}
+
+  .page-hero{background:var(--ink-soft); color:#F0F2F8; padding:44px 0 38px;}
+  .crumb{font-size:13px; color:rgba(240,242,248,0.65); margin-bottom:14px;}
+  .crumb a{color:rgba(240,242,248,0.85);}
+  .page-hero .kicker{font-size:12.5px; font-weight:600; letter-spacing:0.01em; color:var(--amber); margin-bottom:10px;}
+  .page-hero h1{font-size:34px; color:#fff;}
+  .page-hero .sub{margin-top:10px; font-size:16px; color:rgba(240,242,248,0.82);}
+
+  .intro-section{padding:52px 0; border-bottom:1px solid var(--line);}
+  .intro-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:52px; align-items:start;}
+  .intro-grid h2{font-size:27px; max-width:16ch; margin-bottom:16px;}
+  .intro-grid p{font-size:15px; color:var(--slate); line-height:1.65; margin-top:14px;}
+  .intro-media{background:var(--paper-dim); border:1px solid var(--line); min-height:220px; display:flex; align-items:center; justify-content:center; color:var(--slate); font-size:12.5px; text-align:center; padding:20px;}
+
+  .highlights{background:var(--ink); color:#F0F2F8; padding:30px 0;}
+  .highlights .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .highlights .h-item{border-left:1px solid rgba(240,242,248,0.18); padding-left:18px;}
+  .highlights .h-item:first-child{border-left:none; padding-left:0;}
+  .highlights .h-num{font-family:'Source Serif 4', serif; font-size:22px; color:var(--amber); line-height:1.2;}
+  .highlights .h-lbl{font-size:12.5px; color:rgba(240,242,248,0.75); margin-top:6px; line-height:1.4;}
+
+  .services-section{padding:54px 0;}
+  .services-section h2{font-size:26px; margin-bottom:30px;}
+  .services-rail{display:grid; grid-template-columns:repeat(4,1fr);}
+  .s-item{border-top:1px solid var(--ink); padding:18px 22px 0 0;}
+  .s-item:not(:last-child){border-right:1px solid var(--line); margin-right:22px;}
+  .s-item .tag{font-size:12px; color:var(--amber-deep); font-weight:600;}
+  .s-item h3{font-size:17px; margin-top:8px; line-height:1.3;}
+  .s-item p{font-size:13.5px; color:var(--slate); margin-top:8px; line-height:1.55;}
+
+  .contact-cta{background:var(--ink); color:#F0F2F8; padding:52px 0; text-align:center;}
+  .contact-cta h2{color:#fff; font-size:26px;}
+  .contact-cta p{margin-top:10px; color:rgba(240,242,248,0.8); font-size:14.5px;}
+  .contact-cta .cta-btn{margin-top:18px;}
+  footer{background:var(--paper-dim); padding:24px 0; font-size:13px; color:var(--slate); text-align:center;}
+
+  @media (max-width:900px){
+    .intro-grid{grid-template-columns:1fr;}
+    .highlights .wrap{grid-template-columns:repeat(2,1fr); row-gap:20px;}
+    .highlights .h-item{border-left:none; padding-left:0;}
+    .services-rail{grid-template-columns:1fr; row-gap:18px;}
+    .s-item{border-right:none !important; margin-right:0 !important;}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="logo">Exterprise</div>
+    <nav>
+      <a href="../exterprise-servicenow-page-mockup.html">ServiceNow</a>
+      <a href="ai-agents-now-assist.html">AI &amp; Agentic Solutions</a>
+      <a href="#">Industries</a>
+      <a href="#">Smartsourcing</a>
+      <a href="#">About</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="badge-chip"><img src="assets/servicenow-premier-partner-badge.png" alt="" style="width:20px; height:20px; border-radius:4px; flex:none;">ServiceNow Premier Partner</div>
+      <a class="cta-btn" href="#">Talk to Us</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumb"><a href="../exterprise-homepage-mockup.html">Home</a> / <a href="../exterprise-servicenow-page-mockup.html">ServiceNow</a> / Strategic Portfolio Management</div>
+    <div class="kicker">NEW · SPM</div>
+    <h1>Strategic Portfolio Management</h1>
+    <p class="sub">Connect strategy to delivery with AI-driven roadmaps on ServiceNow's SPM.</p>
+  </div>
+</section>
+
+<section class="intro-section">
+  <div class="wrap intro-grid">
+    <div>
+      <h2>One view, from strategy to delivery</h2>
+      <p>Strategic Portfolio Management gives leadership a single, real-time view of how investments, projects, and portfolios map to business outcomes. <strong>Portfolio Planning</strong> prioritizes and sequences investments using roadmaps and scenario analysis, while <strong>Demand Management</strong> centralizes incoming requests and evaluates them against business value — replacing disconnected spreadsheets and legacy PPM tools with live prioritization and reporting.</p>
+      <p>Exterprise holds Certified Implementation Specialist accreditation in Strategic Portfolio Management, and works with Financial Services, Healthcare, and Government clients to connect SPM to the same platform already running their IT, HR, and customer service workflows.</p>
+    </div>
+    <div class="intro-media">[ Visual: Strategic Portfolio Management illustration placeholder ]</div>
+  </div>
+</section>
+
+<section class="highlights">
+  <div class="wrap">
+    <div class="h-item"><div class="h-num">4</div><div class="h-lbl">Certified Implementation Specialists — SPM</div></div>
+    <div class="h-item"><div class="h-num">Premier</div><div class="h-lbl">Partner, Consulting &amp; Implementation</div></div>
+    <div class="h-item"><div class="h-num">4.5/5</div><div class="h-lbl">Customer satisfaction score</div></div>
+    <div class="h-item"><div class="h-num">3</div><div class="h-lbl">Focus industries: Financial Services, Healthcare, Government</div></div>
+  </div>
+</section>
+
+<section class="services-section">
+  <div class="wrap">
+    <h2>Key Services</h2>
+    <div class="services-rail">
+      <div class="s-item"><div class="tag">ADVISORY</div><h3>Portfolio strategy assessment</h3><p>Evaluate current investment and project data to define how SPM should be structured around your actual decision-making process.</p></div>
+      <div class="s-item"><div class="tag">DEPLOYMENT</div><h3>SPM implementation</h3><p>Configure Portfolio Planning, Demand Management, and Financial Planning so leadership can prioritize against outcomes, not gut feel.</p></div>
+      <div class="s-item"><div class="tag">STAFFING</div><h3>Certified SPM specialists</h3><p>Certified Implementation Specialists available to augment your team through go-live and beyond.</p></div>
+      <div class="s-item"><div class="tag">MANAGED SERVICES</div><h3>Ongoing portfolio governance</h3><p><strong>Now Assist for SPM</strong> and the <strong>Demand Management AI Specialist</strong> agent keep intake triage and reporting current, so SPM stays a living decision tool, not a one-time setup.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-cta">
+  <div class="wrap">
+    <h2>Let's Talk!</h2>
+    <p>Talk to a ServiceNow architect about your Strategic Portfolio Management initiative.</p>
+    <a class="cta-btn" href="#">Send a Message</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Exterprise, LLC — ServiceNow Premier Partner, Consulting &amp; Implementation</div>
+</footer>
+
+</body>
+</html>
