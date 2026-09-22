@@ -15,15 +15,16 @@
   let frame = 0;
   function render() {
     frame = 0;
-    const enabled = desktop.matches && !reduced.matches && innerHeight >= 650;
+    const mobile = !desktop.matches;
+    const enabled = !reduced.matches && innerHeight >= (mobile ? 520 : 650);
     if (journey) {
       journey.classList.toggle('morph-active', enabled);
       if (enabled) {
         const rect = journey.getBoundingClientRect();
-        const progress = clamp((80 - rect.top) / Math.max(1, rect.height - innerHeight));
+        const progress = clamp(((mobile ? 72 : 80) - rect.top) / Math.max(1, rect.height - innerHeight));
         const contraction = ease(clamp(progress / .2));
-        const diameter = Math.min(235, Math.max(100, innerWidth * .145));
-        const expanded = innerWidth * .32;
+        const diameter = mobile ? 76 : Math.min(235, Math.max(100, innerWidth * .145));
+        const expanded = innerWidth * (mobile ? .65 : .32);
         pill.style.width = `${expanded + (diameter - expanded) * contraction}px`;
         pill.style.height = `${diameter}px`;
         journey.style.setProperty('--icon-rotation', `${contraction * 90}deg`);
@@ -31,6 +32,7 @@
         const horizontal = ease(clamp((progress - .2) / .5));
         const distance = Math.max(0, track.scrollWidth - innerWidth + innerWidth * .06);
         track.style.transform = `translate3d(${-distance * horizontal}px,0,0)`;
+        journey.style.setProperty('--mobile-track-x', `${-distance * horizontal}px`);
         journey.style.setProperty('--next-fill', .22 + clamp(horizontal * 3) * .78);
         journey.style.setProperty('--last-fill', .22 + clamp((horizontal - .35) * 2) * .78);
         words.forEach((word, i) => { const p = ease(clamp((progress - .08 - i * .014) / .18)); word.style.opacity = .35 + p * .65; word.style.transform = `translateY(${(1-p)*12}px)`; });
@@ -46,8 +48,8 @@
       if (enabled) {
         const r = filmScene.getBoundingClientRect();
         const p = ease(clamp((80 - r.top) / Math.max(1, r.height - innerHeight) / .78));
-        cinema.style.setProperty('--film-width', `${100 - p * 56}%`);
-        cinema.style.setProperty('--film-height', `${100 - p * 34}%`);
+        cinema.style.setProperty('--film-width', `${100 - p * (mobile ? 12 : 56)}%`);
+        cinema.style.setProperty('--film-height', `${100 - p * (mobile ? 0 : 34)}%`);
         cinema.style.setProperty('--film-radius', `${18 + p * 10}px`);
         cinema.style.setProperty('--mosaic-opacity', clamp((p - .12) / .6));
         cinema.style.setProperty('--mosaic-scale', .9 + p * .1);

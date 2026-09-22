@@ -1,3 +1,12 @@
+// Mobile navigation shares the existing accessible menu and its keyboard handling.
+const navActions=document.querySelector('.nav-actions');
+if(navActions&&!document.querySelector('.menu-button')){
+ const toggle=document.createElement('button');
+ toggle.className='menu-button';toggle.type='button';
+ toggle.setAttribute('aria-label','Open navigation');
+ toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls','site-menu');
+ toggle.innerHTML='<span></span><span></span>';navActions.append(toggle);
+}
 const root=document.documentElement;
 const themeButton=document.querySelector('.theme-switch');
 function applyTheme(t){root.dataset.theme=t;themeButton?.setAttribute('aria-label',t==='dark'?'Switch to light theme':'Switch to dark theme');try{localStorage.setItem('ex-theme',t)}catch{}}
@@ -8,6 +17,7 @@ let menuOpener=menuButton;
 function closeMenu(){menu.hidden=true;[menuButton,servicesButton].forEach(b=>b?.setAttribute('aria-expanded','false'));menuButton?.setAttribute('aria-label','Open navigation');document.body.classList.remove('menu-open');document.querySelector('main').inert=false;document.querySelector('footer').inert=false}
 function toggleMenu(e){menuOpener=e.currentTarget;if(!menu.hidden){closeMenu();return}menu.hidden=false;[menuButton,servicesButton].forEach(b=>b?.setAttribute('aria-expanded','true'));menuButton?.setAttribute('aria-label','Close navigation');document.body.classList.add('menu-open');document.querySelector('main').inert=true;document.querySelector('footer').inert=true;menu.querySelector('a').focus()}
 menuButton?.addEventListener('click',toggleMenu);servicesButton?.addEventListener('click',toggleMenu);
+matchMedia('(max-width: 900px)').addEventListener('change',()=>{if(menu&&!menu.hidden)closeMenu()});
 menu?.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu()});
 document.querySelectorAll('.site-header a').forEach(a=>a.addEventListener('click',()=>{if(!menu.hidden)closeMenu()}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){closeMenu();menuOpener.focus()}if(e.key==='Tab'&&!menu.hidden){const focusable=[...document.querySelectorAll('.site-header a,.site-header button,#site-menu a')].filter(x=>x.getClientRects().length);const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
