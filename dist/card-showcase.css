@@ -1,0 +1,166 @@
+/* Card showcase redesign — glassmorphic treatment for the Premier Partner
+   stats grid (section 2) and the Solution & Services Matrix service cards.
+   Modeled on the supplied Catalist / Coordinize reference cards: large
+   rounded corners, frosted glass surfaces, warm orange gradient glow,
+   glass pill labels/number badges and a sparkle emblem motif. Loaded last
+   so it wins the cascade; scoped selectors keep overrides intentional. */
+
+:root{
+ --glass-radius:26px;
+ --glass-border:rgba(255,255,255,.12);
+ --glass-fill:linear-gradient(158deg,rgba(41,36,33,.72),rgba(16,19,20,.86));
+ --glass-glow:radial-gradient(125% 95% at 88% 4%,rgba(255,142,45,.20),transparent 56%);
+ --glass-shadow:0 26px 60px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,255,255,.12),inset 0 0 0 1px rgba(255,255,255,.02);
+ --amber:linear-gradient(135deg,#ff9422 0%,#ff6a00 55%,#e2450b 100%);
+}
+
+/* Sparkle emblem motif (the four-point star from the reference cards). */
+.card-spark{
+ position:absolute;
+ width:var(--spark,34px);height:var(--spark,34px);
+ background:radial-gradient(circle at 50% 50%,#ffb265,#ff7a18 60%,#ef5a09);
+ clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);
+ filter:drop-shadow(0 2px 8px rgba(255,120,24,.55));
+ pointer-events:none;
+}
+
+/* ---------------------------------------------------------------------------
+   Section 2 — Premier Partner numbers grid
+--------------------------------------------------------------------------- */
+.numbers-section .numbers-grid{gap:18px}
+
+.numbers-section .number-card{
+ position:relative;
+ border-radius:var(--glass-radius);
+ border:1px solid var(--glass-border);
+ background:var(--glass-glow),var(--glass-fill);
+ -webkit-backdrop-filter:blur(20px) saturate(1.12);
+ backdrop-filter:blur(20px) saturate(1.12);
+ box-shadow:var(--glass-shadow);
+ padding:34px;
+ overflow:hidden;
+ transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s;
+}
+.numbers-section .number-card::after{
+ content:"";position:absolute;inset:0;border-radius:inherit;
+ background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 30%);
+ pointer-events:none;
+}
+.numbers-section .number-card:hover{
+ transform:translateY(-6px);
+ box-shadow:0 40px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.16);
+}
+.numbers-section .number-card .card-spark{top:22px;right:22px;--spark:30px}
+
+/* Cards are always dark glass, so text is pinned light in both themes. */
+.numbers-section .number-card strong{
+ position:relative;z-index:1;
+ color:#f4f5f4;
+ text-shadow:0 2px 24px rgba(0,0,0,.35);
+}
+.numbers-section .count-suffix{color:#ff753e}
+
+/* Labels become frosted glass pills like the reference "Loan Amount" chip. */
+.numbers-section .number-label{
+ position:relative;z-index:1;
+ align-self:flex-start;
+ display:inline-block;
+ max-width:100%;
+ color:#eceeed;
+ font-size:14px;line-height:1.45;
+ padding:10px 16px;
+ border-radius:18px;
+ background:rgba(255,255,255,.08);
+ border:1px solid rgba(255,255,255,.16);
+ -webkit-backdrop-filter:blur(8px);
+ backdrop-filter:blur(8px);
+}
+
+/* Photo tile picks up the same radius + glass edge. */
+.numbers-section .numbers-image{
+ border-radius:var(--glass-radius);
+ border:1px solid var(--glass-border);
+ box-shadow:var(--glass-shadow);
+}
+
+/* Accent stat card → vivid amber glass, echoing the orange Coordinize card. */
+.numbers-section .number-card-2{
+ background:
+   radial-gradient(120% 130% at 0% 0%,rgba(255,255,255,.28),transparent 46%),
+   var(--amber);
+ border:1px solid rgba(255,255,255,.30);
+ box-shadow:0 26px 60px rgba(226,69,11,.38),inset 0 1px 0 rgba(255,255,255,.38);
+ color:#fff;
+}
+.numbers-section .number-card-2 strong{color:#fff;text-shadow:0 2px 18px rgba(120,40,0,.35)}
+.numbers-section .number-card-2 .count-suffix{color:#fff}
+.numbers-section .number-card-2 .number-label{
+ color:#fff;
+ background:rgba(23,16,11,.22);
+ border-color:rgba(255,255,255,.32);
+}
+.numbers-section .number-card-2 .card-spark{
+ background:radial-gradient(circle at 50% 50%,#fff,#ffe0c0 55%,#ffbe86);
+ filter:drop-shadow(0 2px 8px rgba(120,40,0,.35));
+}
+
+/* ---------------------------------------------------------------------------
+   Service cards — Solution & Services Matrix
+--------------------------------------------------------------------------- */
+.red-capabilities .red-service-card{
+ position:relative;
+ border-radius:var(--glass-radius);
+ padding:28px;
+ border:1px solid rgba(255,255,255,.18);
+ background:
+   radial-gradient(135% 90% at 100% 0%,rgba(255,158,66,.22),transparent 56%),
+   linear-gradient(150deg,rgba(43,36,32,.80),rgba(14,16,17,.90));
+ -webkit-backdrop-filter:blur(22px) saturate(1.18);
+ backdrop-filter:blur(22px) saturate(1.18);
+ box-shadow:0 32px 72px rgba(60,20,0,.46),inset 0 1px 0 rgba(255,255,255,.18);
+ transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s;
+}
+.red-capabilities .red-service-card:hover{
+ transform:translateY(-5px);
+ box-shadow:0 44px 90px rgba(60,20,0,.55),inset 0 1px 0 rgba(255,255,255,.24);
+}
+
+/* Number → frosted glass pill badge (top-left of each reference card). */
+.red-capabilities .red-card-number{
+ display:inline-flex;align-items:center;justify-content:center;
+ min-width:46px;height:46px;padding:0 15px;
+ margin-bottom:26px;
+ border-radius:999px;
+ background:rgba(255,255,255,.08);
+ border:1px solid rgba(255,255,255,.20);
+ -webkit-backdrop-filter:blur(10px);
+ backdrop-filter:blur(10px);
+ color:#ffd3a3;
+ font-size:15px;letter-spacing:.02em;
+}
+
+.red-capabilities .red-service-card h3{letter-spacing:-.03em}
+.red-capabilities .red-service-card img{
+ border-radius:18px;
+ border:1px solid rgba(255,255,255,.10);
+ box-shadow:0 16px 36px rgba(0,0,0,.35);
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive: keep the glass treatment coherent on small screens.
+--------------------------------------------------------------------------- */
+@media(max-width:760px){
+ .numbers-section .numbers-grid{gap:14px!important}
+ .numbers-section .number-card{padding:22px!important;border-radius:20px!important}
+ .numbers-section .number-card .card-spark{top:16px;right:16px;--spark:24px}
+ .numbers-section .numbers-image{border-radius:20px!important}
+ .red-capabilities .red-service-card{border-radius:22px!important;padding:22px!important}
+ .red-capabilities .red-card-number{margin-bottom:18px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+ .numbers-section .number-card,
+ .red-capabilities .red-service-card{transition:none}
+ .numbers-section .number-card:hover,
+ .red-capabilities .red-service-card:hover{transform:none}
+}
